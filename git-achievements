@@ -95,8 +95,16 @@ function unlock_achievement()
     output_achievement "$@" >&2
     output_achievement "$@" >> "${ACHIEVEMENTSLOGFILE}"
 
-    if [ "`git config --global achievements.upload`" = "true" ] ; then
+    if [ "`git config achievements.upload`" = "true" ] ; then
         publish_achievements "$@"
+		else 
+			if [ "`git config achievement.upload`" = "true" ] ; then
+				echo "[DEPRECATED] git config achievement.upload should be replaced by
+				achievements.upload "
+				echo "please update your configuration file"
+				echo "update your configuration file :"
+
+			fi
     fi
 }
 
@@ -486,7 +494,7 @@ There are $total Achievements. Some achievements can be leveled up depending on 
         return
     fi
 
-    if [ ! "`git config --global achievements.upload`" = "true" ] ; then
+    if [ ! "`git config achievements.upload`" = "true" ] ; then
         echo "Global achievements.upload not set to true, updates left uncommited"
         return
     fi
