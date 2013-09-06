@@ -406,10 +406,10 @@ function publish_achievements
 
     user=`git config --global user.name`
 
-        index=`git config git-achievements.index`
+        index=`git config achievements.index`
     if [ -n "${index}" ]; then
             if [ "${index}" = "username" ]; then
-                index=$user
+                index=${user}
             fi
         else
             index="index"
