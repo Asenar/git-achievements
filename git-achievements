@@ -514,7 +514,7 @@ There are $total Achievements. Some achievements can be leveled up depending on 
         cd "${repo_dir}"
         unset GIT_DIR
 				git fetch ${remote_name}
-				git pull "${remote_name}" "${branch_name}" --ff --ff-only
+				git reset --hard "${remote_name}"/"${branch_name}"
         git add "${index}.html" "${index}.rss"
     else
         echo "Adding new achievements and publishing to origin."
