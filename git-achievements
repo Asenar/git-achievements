@@ -53,9 +53,9 @@ function git_achievements_command
             echo "       git config --global achievements.index username"
             echo ""
             echo "    Customize also repository local dir, remote name and branche :"
-            echo "       git config --global achievements.repo_dir  /absolute/path/to/dir"
-            echo "       git config --global achievements.remote_name origin"
-            echo "       git config --global achievements.branch_name master"
+            echo "       git config --global achievements.repo-dir  /absolute/path/to/dir"
+            echo "       git config --global achievements.remote-name origin"
+            echo "       git config --global achievements.branch-name master"
             ;;
     esac
 }
@@ -499,9 +499,9 @@ There are $total Achievements. Some achievements can be leveled up depending on 
         return
     fi
 
-    repo_dir=`git config --global achievements.repo_dir`
-    remote_name=`git config --global achievements.remote_name`
-    branch_name=`git config --global achievements.branch_name`
+    repo_dir=`git config --global achievements.repo-dir`
+    remote_name=`git config --global achievements.remote-name`
+    branch_name=`git config --global achievements.branch-name`
     if [ -z "${remote_name}" ]; then
         remote_name=origin
     fi
